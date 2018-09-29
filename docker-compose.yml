@@ -10,7 +10,7 @@ services:
     volumes:
       - mediawiki-content:/var/www/html/images
       - ./LocalSettings.php:/var/www/html/LocalSettings.php
-      #- ./goat_logo.jpg:/var/www/html/resources/assets/goat_logo.jpg
+      - ./goat_logo.png:/var/www/html/resources/assets/goat_logo.png
   mysql-database:
     image: mariadb
     restart: always
