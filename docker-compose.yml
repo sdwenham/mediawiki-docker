@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mediawiki-demo:
+    image: mediawiki
+    restart: always
+    ports:
+      - 8000:80
+    links:
+      - mysql-database
+    volumes:
+      - mediawiki-content:/var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      #- ./goat_logo.jpg:/var/www/html/resources/assets/goat_logo.jpg
+  mysql-database:
+    image: mariadb
+    restart: always
+    env_file:
+      - compose/mysql.env
+
+volumes:
+  mediawiki-content:
+  
