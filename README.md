@@ -10,7 +10,7 @@ If this is the first run with a new set of containers (especialy the database) y
 ## Restoring the database
 The initdb.sql file contains the initial database created by the mediawiki installer and matches the LocalSetting.php in this repo
 
-To restore this database first run
+To restore this database you will need to have already run
 > docker-compose up
 
 to start the containers. At this point if you try to browse to localhost:8000 you will get a PHP exception, you now need to restore the database
@@ -28,3 +28,11 @@ Now to restore the database run
 
 for the example above the command would be
 >cat initdb.sql | docker exec -i mediawiki-docker_mysql-database_1 /usr/bin/mysql -u wikiuser --password=example my_wiki
+
+## Backing up the database
+If you want to backup the database, follow the steps above to get the container name then run
+
+>docker exec [container name] /usr/bin/mysqldump -u [mysql user] --password=[mysqp password] [wiki database] > backup.sql
+
+For the example above the command would be
+>docker exec mediawiki-demo_mysql-database_1 /usr/bin/mysqldump -u wikiuser --password=example my_wiki > backup.sql
