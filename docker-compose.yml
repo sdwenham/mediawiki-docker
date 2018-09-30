@@ -16,7 +16,10 @@ services:
     restart: always
     env_file:
       - compose/mysql.env
+    volumes:
+      - mysqldb:/var/lib/mysql
 
 volumes:
   mediawiki-content:
+  mysqldb:
   
