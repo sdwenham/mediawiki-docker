@@ -5,7 +5,7 @@ Mediawiki in a docker-compose pair of containers
 Just run
 > docker-compose up
 
-If this is the first run with a new set of containers (especialy the database) you will need to restore the database
+If this is the first run with a new set of containers (especialy the database container) you will need to restore the database
 
 ## Restoring the database
 The initdb.sql file contains the initial database created by the mediawiki installer and matches the LocalSetting.php in this repo
